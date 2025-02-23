@@ -94,8 +94,11 @@
 
         #greeting {
             font-size: 1.8em;
-            color: white;
+            color: black; /* تغيير لون النص إلى الأسود */
             margin: 20px 0;
+            background: rgba(255, 255, 255, 0.8); /* خلفية بيضاء شفافة */
+            padding: 10px;
+            border-radius: 10px;
         }
 
         .share-buttons {
@@ -105,13 +108,16 @@
         .share-buttons a {
             display: inline-block;
             margin: 0 10px;
-            color: #FFD700;
-            font-size: 1.5em;
             transition: 0.3s;
         }
 
         .share-buttons a:hover {
             transform: scale(1.2);
+        }
+
+        .share-buttons img {
+            width: 40px;
+            height: 40px;
         }
     </style>
 </head>
@@ -135,9 +141,15 @@
 
         <!-- أزرار المشاركة -->
         <div class="share-buttons">
-            <a href="#" onclick="shareOnFacebook()">📘</a>
-            <a href="#" onclick="shareOnTwitter()">🐦</a>
-            <a href="#" onclick="shareOnWhatsApp()">📱</a>
+            <a href="#" onclick="shareOnFacebook()">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            </a>
+            <a href="#" onclick="shareOnTwitter()">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg" alt="Twitter">
+            </a>
+            <a href="#" onclick="shareOnWhatsApp()">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
         </div>
 
         <!-- مكان الإعلان السفلي -->
