@@ -167,14 +167,14 @@
     </div>
 
     <audio id="ramadan-song" loop>
-        <source src="https://example.com/ramadan-jana.mp3" type="audio/mpeg">
+        <source src="/storage/emulated/0/Download/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        // عدّاد التنازل لرمضان (تاريخ 2024/03/10 كمثال)
+        // عدّاد التنازل لرمضان 2025 (تاريخ 2025/03/01 كمثال)
         function updateCountdown() {
-            const ramadanDate = new Date('2024-03-1');
+            const ramadanDate = new Date('2025-03-01');
             const now = new Date();
             const diff = ramadanDate - now;
 
@@ -205,12 +205,15 @@
         }
 
         function shareOnFacebook() {
+            const name = document.getElementById('name').value;
             const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            const text = encodeURIComponent(`اهلا ${name} قم بالدخول للحصول علي رسالت التهنئه الخاصه بك 🌙 ${url}`);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
         }
 
         function shareOnWhatsApp() {
-            const text = encodeURIComponent("رمضان يجمعنا! قم بزيارة الموقع للحصول على تهنئة خاصة 🌙 " + window.location.href);
+            const name = document.getElementById('name').value;
+            const text = encodeURIComponent(`اهلا ${name} قم بالدخول للحصول علي رسالت التهنئه الخاصه بك 🌙 ` + window.location.href);
             window.open(`https://wa.me/?text=${text}`, '_blank');
         }
     </script>
