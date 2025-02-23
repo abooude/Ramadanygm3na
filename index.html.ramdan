@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تهنئة رمضان التفاعلية</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #2c5f2d, #1a3c1a);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            direction: rtl;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .ad-banner {
+            background: #fff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+        }
+
+        h1 {
+            color: #FFD700;
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+
+        .input-box {
+            margin: 25px 0;
+        }
+
+        input {
+            padding: 12px 20px;
+            font-size: 1.1em;
+            border: 2px solid #FFD700;
+            border-radius: 25px;
+            background: transparent;
+            color: white;
+            margin: 10px;
+        }
+
+        button {
+            background: #FFD700;
+            color: #1a3c1a;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #greeting {
+            font-size: 1.8em;
+            color: white;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- مكان الإعلان العلوي -->
+        <div class="ad-banner">
+            <!-- ضع كود الإعلان هنا -->
+            <p>مساحة إعلانية 728x90</p>
+        </div>
+
+        <h1>🌙 كل عام وأنتم بخير 🌙</h1>
+        
+        <div class="input-box">
+            <input type="text" id="name" placeholder="اكتب اسمك هنا">
+            <button onclick="showGreeting()">عرض التهنئة</button>
+        </div>
+
+        <div id="greeting"></div>
+
+        <!-- مكان الإعلان السفلي -->
+        <div class="ad-banner">
+            <!-- ضع كود الإعلان هنا -->
+            <p>مساحة إعلانية 300x250</p>
+        </div>
+
+    </div>
+
+    <script>
+        function showGreeting() {
+            const name = document.getElementById('name').value;
+            const greeting = document.getElementById('greeting');
+            const messages = [
+                `🌹 ${name}، تقبل الله طاعاتك وأسعد أوقاتك 🌹`,
+                `✨ ${name}، رمضان كريم وكل عام وأنت إلى الله أقرب ✨`,
+                `🌙 ${name}، جعلنا الله وإياك من صوامه وقوامه 🌙`
+            ];
+            
+            greeting.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+            greeting.style.animation = 'fadeIn 1s';
+        }
+
+        // إضافة رسالة ترحيب تلقائية عند التحميل
+        window.onload = function() {
+            document.getElementById('greeting').innerHTML = "أهلاً وسهلاً! اكتب اسمك لتحصل على تهنئة خاصة";
+        }
+    </script>
+</body>
+</html>
