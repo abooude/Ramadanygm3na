@@ -6,7 +6,7 @@
     <title>تهنئة رمضان التفاعلية</title>
     <style>
         body {
-            background: url('https://i.imgur.com/xyz1234.jpg') no-repeat center center fixed;
+            background: url('https://i.imgur.com/0y7Xh5Q.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Arial', sans-serif;
             display: flex;
@@ -26,6 +26,15 @@
             text-align: center;
             max-width: 600px;
             width: 90%;
+        }
+
+        .countdown {
+            color: #FFD700;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
         }
 
         .ad-banner {
@@ -94,9 +103,9 @@
 
         #greeting {
             font-size: 1.8em;
-            color: black; /* تغيير لون النص إلى الأسود */
+            color: black;
             margin: 20px 0;
-            background: rgba(255, 255, 255, 0.8); /* خلفية بيضاء شفافة */
+            background: rgba(255, 255, 255, 0.8);
             padding: 10px;
             border-radius: 10px;
         }
@@ -123,10 +132,11 @@
 </head>
 <body>
     <div class="container">
-        
+        <!-- عداد التنازل -->
+        <div class="countdown" id="countdown"></div>
+
         <!-- مكان الإعلان العلوي -->
         <div class="ad-banner">
-            <!-- ضع كود الإعلان هنا -->
             <p>مساحة إعلانية 728x90</p>
         </div>
 
@@ -144,9 +154,6 @@
             <a href="#" onclick="shareOnFacebook()">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
             </a>
-            <a href="#" onclick="shareOnTwitter()">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg" alt="Twitter">
-            </a>
             <a href="#" onclick="shareOnWhatsApp()">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             </a>
@@ -154,7 +161,6 @@
 
         <!-- مكان الإعلان السفلي -->
         <div class="ad-banner">
-            <!-- ضع كود الإعلان هنا -->
             <p>مساحة إعلانية 300x250</p>
         </div>
 
@@ -166,6 +172,20 @@
     </audio>
 
     <script>
+        // عدّاد التنازل لرمضان (تاريخ 2024/03/10 كمثال)
+        function updateCountdown() {
+            const ramadanDate = new Date('2024-03-1');
+            const now = new Date();
+            const diff = ramadanDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').innerHTML = `⏳ متبقي لرمضان: ${days} يوم`;
+        }
+
+        // تحديث العدّاد كل يوم
+        setInterval(updateCountdown, 86400000);
+        updateCountdown(); // التشغيل الفوري
+
         function showGreeting() {
             const name = document.getElementById('name').value;
             const greeting = document.getElementById('greeting');
@@ -179,22 +199,14 @@
             greeting.style.animation = 'fadeIn 1s';
         }
 
-        // تشغيل الأغنية تلقائيًا
         window.onload = function() {
             document.getElementById('greeting').innerHTML = "أهلاً وسهلاً! اكتب اسمك لتحصل على تهنئة خاصة";
             document.getElementById('ramadan-song').play();
         }
 
-        // وظائف المشاركة
         function shareOnFacebook() {
             const url = encodeURIComponent(window.location.href);
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        }
-
-        function shareOnTwitter() {
-            const text = encodeURIComponent("رمضان يجمعنا! قم بزيارة الموقع للحصول على تهنئة خاصة 🌙");
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
         }
 
         function shareOnWhatsApp() {
